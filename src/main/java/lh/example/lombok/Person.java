@@ -9,11 +9,12 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
-import java.io.InputStream;
 import java.time.LocalDate;
 
 @Data
+@Slf4j
 public class Person {
 
     public enum Gender {FEMALE, MALE}
@@ -29,4 +30,12 @@ public class Person {
 
     private Gender gender;
 
+    public void print(){
+        log.info(toString());
+    }
+
+//    public static void main(String args[]){
+//        Person p = new Person(LocalDate.of(2016,1,1),"White","Peter");
+//        p.print();
+//    }
 }

@@ -1,0 +1,14 @@
+Configuration:
+  status: warn
+  name: YAMLConfigTest
+  appenders:
+    Console:
+      name: STDOUT
+      PatternLayout:
+        Pattern: "%d{MM-dd HH:mm:ss.SSS} [ %level ] %l  -  %msg%n"
+
+  Loggers:
+    Root:
+      level: INFO
+      AppenderRef:
+        ref: STDOUT

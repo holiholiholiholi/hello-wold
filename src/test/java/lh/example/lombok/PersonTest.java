@@ -23,6 +23,7 @@ public class PersonTest {
         assertEquals(2000, p.getBirthday().getYear());
         assertEquals(Month.JANUARY,p.getBirthday().getMonth());
         assertEquals(Person.Gender.MALE, p.getGender());
+        p.print();
     }
 
     @Rule
