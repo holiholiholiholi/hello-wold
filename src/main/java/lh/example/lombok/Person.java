@@ -5,20 +5,18 @@ package lh.example.lombok;
  */
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import lh.example.json.LocalDateDeserializer;
-import lh.example.json.LocalDateSerializer;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
 
 @Data
 @EqualsAndHashCode(exclude={"age","hobbies"})
@@ -28,8 +26,7 @@ public class Person {
 
     public enum Gender {FEMALE, MALE}
 
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private final LocalDate birthday;
 
     @NonNull
